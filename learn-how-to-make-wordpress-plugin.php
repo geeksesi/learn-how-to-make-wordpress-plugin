@@ -17,10 +17,38 @@ function lhtmwpp_add_settings_page()
         'learn_how_to_make_wordpress_plugin_setting_page',
         'lhtwpp_setting_page_handler'
     );
+
+    add_menu_page(
+        'Learn Me',
+        'Learn Me',
+        'manage_options',
+        'learn_how_to_make_wordpress_plugin_menu',
+        'lhtwpp_menu_handle'
+    );
+
+    add_submenu_page(
+        'learn_how_to_make_wordpress_plugin_menu',
+        'Learn Me Submenu',
+        'Learn Me SubMenu',
+        'manage_options',
+        'lhtwpp_sub_menu_handle'
+    );
 }
 add_action('admin_menu', 'lhtmwpp_add_settings_page');
 
 function lhtwpp_setting_page_handler()
 {
     echo '<h1>Hello iam Geeksesi...</h1>';
+}
+
+function lhtwpp_menu_handle()
+{
+    echo '<h1>Hello iam Geeksesi...</h1>';
+    echo '<h2>and its main page...</h2>';
+}
+
+function lhtwpp_sub_menu_handle()
+{
+    echo '<h1>Hello iam Geeksesi...</h1>';
+    echo '<h2>and its main page...</h2>';
 }
