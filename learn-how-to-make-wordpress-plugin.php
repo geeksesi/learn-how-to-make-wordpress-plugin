@@ -52,3 +52,13 @@ function lhtwpp_sub_menu_handle()
     echo '<h1>Hello iam Geeksesi...</h1>';
     echo '<h2>and its main page...</h2>';
 }
+
+/**
+ * Add Widget
+ */
+
+include 'LHTMWPP_Widget.php';
+
+add_action('widgets_init', function () {
+    register_widget('LHTMWPP_Widget');
+});
