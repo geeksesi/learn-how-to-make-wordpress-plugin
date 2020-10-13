@@ -62,3 +62,35 @@ include 'LHTMWPP_Widget.php';
 add_action('widgets_init', function () {
     register_widget('LHTMWPP_Widget');
 });
+
+/**
+ * Make Beautiful Rest Api
+ */
+
+add_action('rest_api_init', "LHWPP_rest_route_init");
+
+function LHWPP_rest_route_init()
+{
+    register_rest_route('lhwpp/v1', 'hello', [
+        "methods" => "POST",
+        "callback" => "LHWPP_rest_hello_handler",
+    ]);
+}
+
+/**
+ * Route : site-url/wp-json/lhwpp/v1/hello
+ * Method : POst
+ * input : null
+ * output : string
+ *
+ * @return string
+ */
+function LHWPP_rest_hello_handler()
+{
+    $output = [];
+    $output["ok"] = true;
+    $output["message"] = "Hello World I'm Panda";
+
+    $out = json_encode($output);
+    return $output;
+}
