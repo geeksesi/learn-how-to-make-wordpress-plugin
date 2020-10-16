@@ -94,3 +94,37 @@ function LHWPP_rest_hello_handler()
     $out = json_encode($output);
     return $output;
 }
+
+/**
+ * Database things are here.
+ */
+
+register_activation_hook(__FILE__, 'LHWPP_plugin_activate');
+function LHWPP_plugin_activate()
+{
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'LHWPP_table';
+
+    $sql =
+        " CREATE TABLE " .
+        $table_name .
+        " (
+        id                  BIGINT(20)   NOT NULL AUTO_INCREMENT,
+        title               TEXT         NOT NULL,
+        start_time          DATETIME     NOT NULL,
+        finish_time         DATETIME         NULL,
+        status              VARCHAR(20)  NOT NULL,
+        PRIMARY KEY  (id)
+    )" .
+        $wpdb->get_charset_collate() .
+        ";";
+
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    dbDelta($sql);
+    // add_option('jal_db_version', '1.0.0');
+    if ($wpdb->get_var("SHOW TABLES LIKE '" . $table_name . "'") != $table_name) {
+        error_log("unable to make db");
+        return false;
+    }
+    return true;
+}
