@@ -9,3 +9,4 @@ https://geeksesi.ir
 -   [برای افزونه وردپرس خود صفحه ادمین و صفحه تنظیمات بسازید](https://geeksesi.ir/1399/07/19/make-wordpress-plugin-add-admin-panel/)
 -   [با پلاگین وردپرس خود ابزارک بسازید](https://geeksesi.ir/1399/07/21/make-wordpress-plugin-how-create-custom-widget-by-plugin/)
 -   [وردپرس و گشادی با rest api](https://geeksesi.ir/1399/07/22/make-wordpress-plugin-fall-in-love-with-rest-api/)
+-   [ساخت کد مهاجرت برای دیتابیس افزونه وردپرستون](https://geeksesi.ir/1399/07/25/make-wordpress-plugin-new-database-table-for-our-plugin/)
